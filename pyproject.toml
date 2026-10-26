@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ltstress"
+version = "1.0.0"
+description = "Lithuanian lexical stress and pitch accent detection from speech"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.6",
+    "torchaudio>=2.6",
+    "transformers>=5.0",
+    "numpy",
+    "soundfile",
+    "huggingface_hub",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+ltstress = "ltstress.__main__:main"
+
+[tool.setuptools]
+packages = ["ltstress"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
